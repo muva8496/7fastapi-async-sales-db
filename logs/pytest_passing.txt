@@ -1,0 +1,49 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.8, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\Musa\anaconda3\envs\fastapi-db\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\Musa\Desktop\sales_db_api
+configfile: pytest.ini
+testpaths: tests
+plugins: anyio-4.15.1
+collecting ... collected 14 items
+
+tests/test_sales.py::test_health PASSED                                  [  7%]
+tests/test_sales.py::test_create_sale_returns_201 PASSED                 [ 14%]
+tests/test_sales.py::test_created_sale_is_stored PASSED                  [ 21%]
+tests/test_sales.py::test_invalid_field_returns_422[quantity--5] PASSED  [ 28%]
+tests/test_sales.py::test_invalid_field_returns_422[quantity-0] PASSED   [ 35%]
+tests/test_sales.py::test_invalid_field_returns_422[quantity-banana] PASSED [ 42%]
+tests/test_sales.py::test_invalid_field_returns_422[unit_price_ksh--100] PASSED [ 50%]
+tests/test_sales.py::test_invalid_field_returns_422[unit_price_ksh-0] PASSED [ 57%]
+tests/test_sales.py::test_invalid_field_returns_422[payment_method-Bitcoin] PASSED [ 64%]
+tests/test_sales.py::test_invalid_field_returns_422[sale_date-not-a-date] PASSED [ 71%]
+tests/test_sales.py::test_missing_field_returns_422 PASSED               [ 78%]
+tests/test_sales.py::test_rejected_sale_is_not_stored PASSED             [ 85%]
+tests/test_sales.py::test_duplicate_transaction_id_returns_409 PASSED    [ 92%]
+tests/test_sales.py::test_database_failure_returns_503_and_retry_succeeds PASSED [100%]
+
+============================== warnings summary ===============================
+..\..\anaconda3\envs\fastapi-db\Lib\site-packages\fastapi\testclient.py:1
+  C:\Users\Musa\anaconda3\envs\fastapi-db\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+main.py:30
+  C:\Users\Musa\Desktop\sales_db_api\main.py:30: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    @app.on_event("startup")
+
+..\..\anaconda3\envs\fastapi-db\Lib\site-packages\fastapi\applications.py:4744
+  C:\Users\Musa\anaconda3\envs\fastapi-db\Lib\site-packages\fastapi\applications.py:4744: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    return self.router.on_event(event_type)  # ty: ignore[deprecated]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================= 14 passed, 3 warnings in 1.58s ========================
